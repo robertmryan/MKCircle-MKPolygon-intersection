@@ -20,7 +20,6 @@
 		83040F7B17DB03AB00F4171B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83040F7A17DB03AB00F4171B /* ViewController.m */; };
 		83040F8217DB03DD00F4171B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83040F8117DB03DD00F4171B /* MapKit.framework */; };
 		83040F8417DB048F00F4171B /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83040F8317DB048F00F4171B /* CoreLocation.framework */; };
-		83040F8617DB052000F4171B /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 83040F8517DB052000F4171B /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +42,7 @@
 		83040F8117DB03DD00F4171B /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		83040F8317DB048F00F4171B /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		83040F8517DB052000F4171B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		83040F8717DB09BF00F4171B /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +65,7 @@
 			isa = PBXGroup;
 			children = (
 				83040F8517DB052000F4171B /* README.md */,
+				83040F8717DB09BF00F4171B /* LICENSE */,
 				83040F6417DB03AB00F4171B /* Circle and Polygon Test */,
 				83040F5D17DB03AB00F4171B /* Frameworks */,
 				83040F5C17DB03AB00F4171B /* Products */,
@@ -174,7 +175,6 @@
 				83040F7317DB03AB00F4171B /* Default@2x.png in Resources */,
 				83040F7517DB03AB00F4171B /* Default-568h@2x.png in Resources */,
 				83040F7817DB03AB00F4171B /* MainStoryboard.storyboard in Resources */,
-				83040F8617DB052000F4171B /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,6 +310,7 @@
 				83040F8017DB03AB00F4171B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
