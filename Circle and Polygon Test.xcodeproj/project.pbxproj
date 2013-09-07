@@ -18,6 +18,9 @@
 		83040F7517DB03AB00F4171B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 83040F7417DB03AB00F4171B /* Default-568h@2x.png */; };
 		83040F7817DB03AB00F4171B /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83040F7617DB03AB00F4171B /* MainStoryboard.storyboard */; };
 		83040F7B17DB03AB00F4171B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83040F7A17DB03AB00F4171B /* ViewController.m */; };
+		83040F8217DB03DD00F4171B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83040F8117DB03DD00F4171B /* MapKit.framework */; };
+		83040F8417DB048F00F4171B /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83040F8317DB048F00F4171B /* CoreLocation.framework */; };
+		83040F8617DB052000F4171B /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 83040F8517DB052000F4171B /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +40,9 @@
 		83040F7717DB03AB00F4171B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		83040F7917DB03AB00F4171B /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		83040F7A17DB03AB00F4171B /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		83040F8117DB03DD00F4171B /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		83040F8317DB048F00F4171B /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		83040F8517DB052000F4171B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +50,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				83040F8417DB048F00F4171B /* CoreLocation.framework in Frameworks */,
+				83040F8217DB03DD00F4171B /* MapKit.framework in Frameworks */,
 				83040F5F17DB03AB00F4171B /* UIKit.framework in Frameworks */,
 				83040F6117DB03AB00F4171B /* Foundation.framework in Frameworks */,
 				83040F6317DB03AB00F4171B /* CoreGraphics.framework in Frameworks */,
@@ -56,6 +64,7 @@
 		83040F5217DB03AB00F4171B = {
 			isa = PBXGroup;
 			children = (
+				83040F8517DB052000F4171B /* README.md */,
 				83040F6417DB03AB00F4171B /* Circle and Polygon Test */,
 				83040F5D17DB03AB00F4171B /* Frameworks */,
 				83040F5C17DB03AB00F4171B /* Products */,
@@ -73,6 +82,8 @@
 		83040F5D17DB03AB00F4171B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				83040F8317DB048F00F4171B /* CoreLocation.framework */,
+				83040F8117DB03DD00F4171B /* MapKit.framework */,
 				83040F5E17DB03AB00F4171B /* UIKit.framework */,
 				83040F6017DB03AB00F4171B /* Foundation.framework */,
 				83040F6217DB03AB00F4171B /* CoreGraphics.framework */,
@@ -163,6 +174,7 @@
 				83040F7317DB03AB00F4171B /* Default@2x.png in Resources */,
 				83040F7517DB03AB00F4171B /* Default-568h@2x.png in Resources */,
 				83040F7817DB03AB00F4171B /* MainStoryboard.storyboard in Resources */,
+				83040F8617DB052000F4171B /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -226,7 +238,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -250,7 +262,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
