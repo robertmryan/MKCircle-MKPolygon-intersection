@@ -41,16 +41,13 @@
 
 - (MKOverlayView *)mapView:(MKMapView *)mapView viewForOverlay:(id<MKOverlay>)overlay
 {
-    if ([overlay isKindOfClass:[MKPolyline class]])
-    {
+    if ([overlay isKindOfClass:[MKPolyline class]]) {
         MKPolylineView *view = [[MKPolylineView alloc] initWithOverlay:overlay];
         view.lineWidth = 3.0;
         view.strokeColor = [UIColor blueColor];
 
         return view;
-    }
-    else if ([overlay isKindOfClass:[MKPolygon class]])
-    {
+    } else if ([overlay isKindOfClass:[MKPolygon class]]) {
         MKPolygonView *view = [[MKPolygonView alloc] initWithOverlay:overlay];
         view.lineWidth = 3.0;
         view.strokeColor = [UIColor blueColor];
@@ -62,9 +59,7 @@
         });
 
         return view;
-    }
-    else if ([overlay isKindOfClass:[MKCircle class]])
-    {
+    } else if ([overlay isKindOfClass:[MKCircle class]]) {
         MKCircleView *view = [[MKCircleView alloc] initWithOverlay:overlay];
         view.lineWidth = 3.0;
         view.strokeColor = [UIColor blueColor];
@@ -83,15 +78,14 @@
 
 - (void)updateIntersectLabel
 {
-    NSString *string = [self doesCircleAndPolygonIntersect] ? @"Yes" : @"No";
+    NSString *string = [self circleAndPolygonIntersect] ? @"Yes" : @"No";
 
-    if (![self.intersectLabel.text isEqualToString:string])
-    {
+    if (![self.intersectLabel.text isEqualToString:string]) {
         self.intersectLabel.text = string;
     }
 }
 
-- (BOOL)doesCircleAndPolygonIntersect
+- (BOOL)circleAndPolygonIntersect
 {
     if (!self.circleView || !self.polygonView)
         return NO;
@@ -103,8 +97,7 @@
 
     UIBezierPath *path = [UIBezierPath bezierPath];
     CGPoint lastPoint;
-    for (NSInteger i = 0; i < [self.locations count]; i++)
-    {
+    for (NSInteger i = 0; i < [self.locations count]; i++) {
         // if point is in the circle, then we're done
 
         if ([centerLocation distanceFromLocation:self.locations[i]] < self.circle.radius)
@@ -113,20 +106,16 @@
         // otherwise add line to path
 
         CGPoint point = [self.mapView convertCoordinate:[self.locations[i] coordinate] toPointToView:self.mapView];
-        if (i == 0)
-        {
+        if (i == 0) {
             [path moveToPoint:point];
-        }
-        else
-        {
+        } else {
             CGFloat angle1 = [self angleFromVertex:lastPoint toPoint:point     andPoint:center];
             CGFloat angle2 = [self angleFromVertex:point     toPoint:lastPoint andPoint:center];
 
             // if the line segment intersected the circle, then we're done
 
             if (angle1 < M_PI_2 && angle2 < M_PI_2 &&
-                [self distanceOfPoint:center fromLineFrom:lastPoint to:point] < radius)
-            {
+                [self distanceOfPoint:center fromLineFrom:lastPoint to:point] < radius) {
                 return YES;
             }
 
@@ -220,20 +209,15 @@
     CLLocationCoordinate2D coordinate = [self.mapView convertPoint:point toCoordinateFromView:self.mapView];
     CLLocation *location = [[CLLocation alloc] initWithLatitude:coordinate.latitude longitude:coordinate.longitude];
 
-    if (!self.locations)
-    {
+    if (!self.locations) {
         startPoint = point;
         self.locations = [NSMutableArray arrayWithObject:location];
-    }
-    else
-    {
-        if (hypot(startPoint.x - point.x, startPoint.y - point.y) > 30.0 || [self.locations count] < 2)
-        {
+    } else {
+        if (hypot(startPoint.x - point.x, startPoint.y - point.y) > 30.0 || [self.locations count] < 2) {
             [self.locations addObject:location];
             NSInteger count = [self.locations count];
             CLLocationCoordinate2D coordinates[count];
-            for (NSInteger i = 0; i < count; i++)
-            {
+            for (NSInteger i = 0; i < count; i++) {
                 CLLocation *location = self.locations[i];
                 coordinates[i] = location.coordinate;
             }
@@ -243,14 +227,11 @@
             if (self.polygon)
                 [self.mapView removeOverlay:self.polygon];
             self.polygon = polyline;
-        }
-        else
-        {
+        } else {
             [self.locations addObject:self.locations[0]];
             NSInteger count = [self.locations count];
             CLLocationCoordinate2D coordinates[count];
-            for (NSInteger i = 0; i < count; i++)
-            {
+            for (NSInteger i = 0; i < count; i++) {
                 CLLocation *location = self.locations[i];
                 coordinates[i] = location.coordinate;
             }
@@ -273,21 +254,16 @@
     CLLocationCoordinate2D coordinate = [self.mapView convertPoint:point toCoordinateFromView:self.mapView];
     CLLocation *location = [[CLLocation alloc] initWithLatitude:coordinate.latitude longitude:coordinate.longitude];
 
-    if (gesture.state == UIGestureRecognizerStateBegan)
-    {
+    if (gesture.state == UIGestureRecognizerStateBegan) {
         center = location;
-    }
-    else if (gesture.state == UIGestureRecognizerStateChanged)
-    {
+    } else if (gesture.state == UIGestureRecognizerStateChanged) {
         MKCircle *circle = [MKCircle circleWithCenterCoordinate:center.coordinate
                                                          radius:[center distanceFromLocation:location]];
         [self.mapView addOverlay:circle];
         if (self.circle)
             [self.mapView removeOverlay:self.circle];
         self.circle = circle;
-    }
-    else if (gesture.state == UIGestureRecognizerStateEnded)
-    {
+    } else if (gesture.state == UIGestureRecognizerStateEnded) {
         [self configureForEditing:NO];
     }
 }
@@ -298,8 +274,7 @@
 {
     static BOOL hasShownAlert = NO;
 
-    if (!hasShownAlert)
-    {
+    if (!hasShownAlert) {
         [[[UIAlertView alloc] initWithTitle:nil
                                     message:@"Tap where you want the center of the circle and drag to the appropriate size. Release finger to complete the circle."
                                    delegate:nil
@@ -309,8 +284,7 @@
         hasShownAlert = YES;
     }
 
-    if (self.circle)
-    {
+    if (self.circle) {
         [self.mapView removeOverlay:self.circle];
         self.circle = nil;
         self.circleView = nil;
@@ -328,8 +302,7 @@
 {
     static BOOL hasShownAlert = NO;
 
-    if (!hasShownAlert)
-    {
+    if (!hasShownAlert) {
         [[[UIAlertView alloc] initWithTitle:nil
                                     message:@"Tap on the corners of the polygon. Tap on the first corner to complete the polygon."
                                    delegate:nil
@@ -339,8 +312,7 @@
         hasShownAlert = YES;
     }
 
-    if (self.polygon)
-    {
+    if (self.polygon) {
         [self.mapView removeOverlay:self.polygon];
         self.polygon = nil;
         self.polygonView = nil;
